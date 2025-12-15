@@ -1,0 +1,48 @@
+import java.util.Scanner;
+abstract class AbstractAreaCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("--- Area Calculator ---");
+        System.out.println("Enter length and width for Rectangle:");
+        double rectLength = scanner.nextDouble();
+        double rectWidth = scanner.nextDouble();
+        Rectangle rectangle = new Rectangle(rectLength, rectWidth);
+        rectangle.area(); 
+        System.out.println(); 
+        System.out.println("Enter base and height for Triangle:");
+        double triBase = scanner.nextDouble();
+        double triHeight = scanner.nextDouble();
+        Triangle triangle = new Triangle(triBase, triHeight);
+        triangle.area();
+        
+        scanner.close();
+    }
+}
+abstract class Shape {
+    double dim1;
+    double dim2;
+    Shape(double a, double b) {
+        dim1 = a;
+        dim2 = b;
+    }
+    abstract void area();
+}
+class Rectangle extends Shape {
+    Rectangle(double l, double w) {
+        super(l, w);
+    }
+    @Override
+    void area() {
+        System.out.println("Area of Rectangle is: " + (dim1 * dim2));
+    }
+}
+class Triangle extends Shape {
+    Triangle(double b, double h) {
+        super(b, h);
+    }
+    @Override
+    void area() {
+        System.out.println("Area of Triangle is: " + (dim1 * dim2 / 2)); // Formula: (base * height) / 2
+    }
+}
