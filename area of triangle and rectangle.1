@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class AreaCalculator {
+    public float area(float length, float width) {
+        return length * width;
+    }
+    public double area(double base, double height) {
+        return (0.5 * base * height);
+    }
+
+    public static void main(String[] args) {
+        AreaCalculator calculator = new AreaCalculator();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the length of the rectangle:");
+        float rectLength = scanner.nextFloat();
+        System.out.println("Enter the width of the rectangle:");
+        float rectWidth = scanner.nextFloat();
+        System.out.println("Area of Rectangle: " + calculator.area(rectLength, rectWidth) + " sq units\n");
+        System.out.println("Enter the base of the triangle:");
+        double triBase = scanner.nextDouble();
+        System.out.println("Enter the height of the triangle:");
+        double triHeight = scanner.nextDouble();
+        System.out.println("Area of Triangle: " + calculator.area(triBase, triHeight) + " sq units\n");
+
+        scanner.close();
+    }
+}
